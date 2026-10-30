@@ -1,0 +1,44 @@
+{
+  "name": "dsh-plan-toggle",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness plugin: toggle the plan-mode skill in the composer draft, and send an implement-plan prompt, with one shortcut each.",
+  "license": "MIT",
+  "author": "tangc",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "plan-mode",
+    "shortcut"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tangc/dsh-plan-toggle.git"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-shortcuts",
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-api-remotes"
+      ]
+    }
+  }
+}

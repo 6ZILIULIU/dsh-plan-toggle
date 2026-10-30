@@ -1,0 +1,19 @@
+# dsh-plan-toggle — toggle the plan-mode skill for the current turn.
+#
+# Install: plugin_manager install_bundle pointed at this directory (or at a
+# clone of this repository).
+#
+# One row: `toggle-plan`, a browser plugin registering two shortcuts:
+#   - Alt+P (Desktop) / Ctrl+Cmd+Shift+P (Web): add or remove a `/plan-mode`
+#     line at the top of the current session's composer draft. The marker line
+#     is the visible, per-session switch: send it and the plan-mode skill is
+#     carried for that turn.
+#   - Alt+Enter (Desktop) / Ctrl+Cmd+Alt+Enter (Web): send `implement plan`
+#     straight to the session, bypassing the draft entirely.
+#
+# Nothing here touches the native plan mode, any preset, or the skill files on
+# disk; the composer draft is the only state the first shortcut writes.
+
+- insert:
+    - id: toggle-plan
+      name: 'dsh-plan-toggle'
