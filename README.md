@@ -8,6 +8,10 @@ the `plan-mode` skill.
 - **Send implement plan** — sends `implement plan` straight to the session,
   without touching your draft.
 
+## 关于 plan-mode skill 的来源
+
+本仓库内置的 `plan-mode` skill **复刻自 Codex 的计划模式**。它的流程编排条理清晰——先只读摸清事实，再确认意图，然后锁定实现，最后才输出计划——比一般"写个计划"的提示词可靠得多，所以把这套做法搬了过来，并接上 DSH 的 skill 机制与两个快捷入口。
+
 ## Install
 
 ```
@@ -52,7 +56,7 @@ plugin_manager install_bundle → point it at this directory (or a clone of it)
 一个 bundle，两个半边：
 
 - **客户端**（`lib/client.js`）：一个插件行 `toggle-plan`，提供两个快捷键和两个输入框按钮。
-- **宿主端**（`lib/index.js`）：通过 `ctx.skills.register()` 注册 `plan-mode` skill 本体。**装了这个包就有 `$plan-mode`，不需要在 `~/.agents/skills/` 下另放一份。**
+- **宿主端**（`lib/index.js`）：通过 `ctx.skills.register()` 注册 `plan-mode` skill 本体（复刻自 Codex 的计划模式）。**装了这个包就有 `$plan-mode`，不需要在 `~/.agents/skills/` 下另放一份。**
 
 > **skill 正文的权威版本在本仓库的 `lib/index.js`**。`ctx.skills.register` 注册在 profile 根作用域，属于全局 skill；runtime 注册的优先级（250）高于文件系统 provider（600），因此它会**遮蔽**同名的磁盘 skill。以后改 skill 内容请改这里，改 `~/.agents/skills/plan-mode/SKILL.md` 不会生效。
 
