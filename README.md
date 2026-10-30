@@ -1,6 +1,7 @@
 # dsh-plan-toggle
 
-DeepSeek Harness plugin: two shortcuts for working with the `plan-mode` skill.
+DeepSeek Harness plugin: two shortcuts and two composer buttons for working with
+the `plan-mode` skill.
 
 - **Toggle plan-mode in the draft** — adds or removes a `/plan-mode` line at the
   top of the composer draft, so the skill is carried for exactly this turn.
@@ -17,8 +18,10 @@ plugin_manager install_bundle → point it at this directory (or a clone of it)
 
 | 端 | 切换 plan-mode skill | 发送 implement plan |
 | --- | --- | --- |
-| Desktop（Windows / macOS / Linux） | `Alt+P` | `Alt+Enter` |
-| Web（Windows / macOS） | `Ctrl/Cmd+Shift+P` | `Ctrl/Cmd+Alt+Enter` |
+| Desktop（Windows / macOS / Linux） | `Alt+P` | `Alt+I` |
+| Web（Windows / macOS） | `Ctrl/Cmd+Shift+P` | `Ctrl/Cmd+Alt+I` |
+
+不想记快捷键就用鼠标：输入框左侧有**「计划」**按钮，右侧有**「开工」**按钮，行为与快捷键一致。
 
 ### 切换 plan-mode skill（Alt+P）
 
@@ -36,7 +39,7 @@ plugin_manager install_bundle → point it at this directory (or a clone of it)
 
 发出去，这一轮就带上 skill 的规划流程。
 
-### 发送 implement plan（Alt+Enter）
+### 发送 implement plan（Alt+I）
 
 计划看过了、决定开工，按一下直接发出 `implement plan`，不用打这行字。
 
@@ -47,6 +50,8 @@ plugin_manager install_bundle → point it at this directory (or a clone of it)
 ## 装了什么
 
 一个 bundle，一个插件行 `toggle-plan`，一个客户端插件。没有预设、没有宿主端逻辑（`lib/index.js` 只是让包在 Loader 里有个入口）。
+
+> 客户端插件是**单个自包含 bundle**：模块表只认平台 seed（`react` 等）、已物化模块或已注册的包工厂，包内相对路径 `require("./x")` 不可用。所有代码因此集中在一个 `lib/client.js` 里，不要拆文件。
 
 ## 卸载
 
