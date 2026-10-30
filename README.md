@@ -49,9 +49,14 @@ plugin_manager install_bundle → point it at this directory (or a clone of it)
 
 ## 装了什么
 
-一个 bundle，一个插件行 `toggle-plan`，一个客户端插件。没有预设、没有宿主端逻辑（`lib/index.js` 只是让包在 Loader 里有个入口）。
+一个 bundle，两个半边：
 
-> 客户端插件是**单个自包含 bundle**：模块表只认平台 seed（`react` 等）、已物化模块或已注册的包工厂，包内相对路径 `require("./x")` 不可用。所有代码因此集中在一个 `lib/client.js` 里，不要拆文件。
+- **客户端**（`lib/client.js`）：一个插件行 `toggle-plan`，提供两个快捷键和两个输入框按钮。
+- **宿主端**（`lib/index.js`）：通过 `ctx.skills.register()` 注册 `plan-mode` skill 本体。**装了这个包就有 `$plan-mode`，不需要在 `~/.agents/skills/` 下另放一份。**
+
+> **skill 正文的权威版本在本仓库的 `lib/index.js`**。`ctx.skills.register` 注册在 profile 根作用域，属于全局 skill；runtime 注册的优先级（250）高于文件系统 provider（600），因此它会**遮蔽**同名的磁盘 skill。以后改 skill 内容请改这里，改 `~/.agents/skills/plan-mode/SKILL.md` 不会生效。
+
+> 客户端插件是**单个自包含 bundle**：模块表只认平台 seed（`react` 等）、已物化模块或已注册的包工厂，包内相对路径 `require("./x")` 不可用。所有客户端代码因此集中在一个 `lib/client.js` 里，不要拆文件。
 
 ## 卸载
 
@@ -59,14 +64,17 @@ plugin_manager install_bundle → point it at this directory (or a clone of it)
 plugin_manager remove_bundle → dsh-plan-toggle
 ```
 
+会同时移除快捷键、按钮和注册的 `plan-mode` skill。
+
 ## 键位自定义
 
 设置 → 快捷键，搜索 “plan-mode” 或 “implement plan” 即可改键。
 
 ## 边界
 
-- **不写磁盘**：不改 skill 文件的 frontmatter，不改任何配置。
-- **不影响其他会话**：只作用当前主视图那个会话。
+- **不写磁盘**：不改任何文件、不改配置；skill 以 runtime 方式注册，不落盘。
+- **skill 全局生效**：根作用域注册，所有预设的会话都能用。
+- **不影响其他会话草稿**：快捷键与按钮只作用当前主视图那个会话。
 - **不切换原生 plan 模式**：与 `/plan` 那套机制无关。
 - **不误伤正文**：只有独占一行的 `/plan-mode` 才算标记；正文里提到它（如「请用 /plan-mode 规划」）不会被当成开关。
 - **不吞草稿**：发送 implement plan 完全不经过草稿，原内容保留。
