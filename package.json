@@ -1,5 +1,5 @@
 {
-  "name": "dsh-plan-toggle",
+  "name": "dsh-codex-plan-toggle",
   "version": "1.0.0",
   "description": "DeepSeek Harness plugin: toggle the plan-mode skill in the composer draft, and send an implement-plan prompt, with one shortcut each.",
   "license": "MIT",
@@ -26,7 +26,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tangc/dsh-plan-toggle.git"
+    "url": "git+https://github.com/6ZILIULIU/dsh-codex-plan-toggle.git"
   },
   "dsh": {
     "bundle": {

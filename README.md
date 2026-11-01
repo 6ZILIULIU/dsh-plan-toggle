@@ -1,4 +1,4 @@
-# dsh-plan-toggle
+# dsh-codex-plan-toggle
 
 DeepSeek Harness plugin: two shortcuts and two composer buttons for working with
 the `plan-mode` skill.
@@ -14,10 +14,10 @@ the `plan-mode` skill.
 
 ## Install
 
-打开**添加插件**窗口，把下面这串地址复制进去即可安装（指向本仓库的 GitHub 源 `6ZILIULIU/dsh-plan-toggle`）：
+打开**添加插件**窗口，把下面这串地址复制进去即可安装（指向本仓库的 GitHub 源 `6ZILIULIU/dsh-codex-plan-toggle`）：
 
 ```
-github:6ZILIULIU/dsh-plan-toggle
+github:6ZILIULIU/dsh-codex-plan-toggle
 ```
 
 ![添加插件窗口](images/QQ20261102-000836.png)
@@ -69,7 +69,7 @@ github:6ZILIULIU/dsh-plan-toggle
 ## 卸载
 
 ```
-plugin_manager remove_bundle → dsh-plan-toggle
+plugin_manager remove_bundle → dsh-codex-plan-toggle
 ```
 
 会同时移除快捷键、按钮和注册的 `plan-mode` skill。

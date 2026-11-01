@@ -1,4 +1,4 @@
-# dsh-plan-toggle — toggle the plan-mode skill for the current turn.
+# dsh-codex-plan-toggle — toggle the plan-mode skill for the current turn.
 #
 # Install: plugin_manager install_bundle pointed at this directory (or at a
 # clone of this repository).
@@ -16,4 +16,4 @@
 
 - insert:
     - id: toggle-plan
-      name: 'dsh-plan-toggle'
+      name: 'dsh-codex-plan-toggle'
