@@ -14,9 +14,13 @@ the `plan-mode` skill.
 
 ## Install
 
+打开**添加插件**窗口，把下面这串地址复制进去即可安装（指向本仓库的 GitHub 源 `6ZILIULIU/dsh-plan-toggle`）：
+
 ```
-plugin_manager install_bundle → point it at this directory (or a clone of it)
+github:6ZILIULIU/dsh-plan-toggle
 ```
+
+![添加插件窗口](images/QQ20261102-000836.png)
 
 ## 键位
 
